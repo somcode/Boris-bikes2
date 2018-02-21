@@ -25,7 +25,6 @@ bike <-- is_working? --> true/false
 docking_station <-- release_bike --> bike
 ```
 
-
 # challenge4 #
 - error type = NameError
 - error file path = ./.rvm/rubies/ruby-2.4.1/bin/irb:11
@@ -65,3 +64,9 @@ docking_station <-- release_bike --> bike
 - Added a test to ```bike_spec.rb``` that expects instances of ```Bike``` to respond to ```working?``` method
 - Ran ```rspec``` and got an error message because, we had not defined ```working?``` method in ```Bike``` class
 - Defined ```working?```, ran ```rspec``` and test passed.
+
+# challenge10 #
+- We are getting an undefined method error because ```Bike``` and ```DockingStation``` are not "connected". Therefore we need to find a way to make them interact.
+- Added a spec to ```docking_station_spec``` to release a bike. Running ```rspec``` will give an error, because test syntax ```be_working``` expects the program to return ```true```, whereas our method still returns ```nil```. ***To fix this***, we let ```working?``` method return ```true```.
+- In ```DockingStation``` , in method ```release_bike``` we have instantiated a bike object (```Bike.new```); In order to do that we ```require 'bike'```. In this case, using ```require``` only would give us a ```LoadError``` because ```irb``` tries to search into Ruby's library path which doesn't contain any ```bike``` file.
+  - We used ```require_relative 'bike'``` to load instances of ```Bike``` class into ```DockingStation```
