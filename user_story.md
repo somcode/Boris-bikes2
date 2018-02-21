@@ -37,3 +37,9 @@ docking_station <-- release_bike --> bike
 - create new spec file inside spec folder named docking_station_spec.rb
 - ```describe DockingStation do end ```
 - error message is same because we didnt initialize the class. we only wrote the test.
+
+# challenge6 #
+- created a lib directory inside project repo
+- within lib directory we created ```docking_station.rb``` where we initialize the class.
+- we added ```require 'docking_station'``` at the top of docking_station_spec.rb
+- we didnt get any error message because we initialized DockingStation class and we've told spec file where to find it.
