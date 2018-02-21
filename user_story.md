@@ -55,3 +55,13 @@ docking_station <-- release_bike --> bike
 - Error running ```rspec```: failing because method ```release_bike``` was not initialised (were expecting error message saying something like "undefined method")
 - Defined ```release_bike``` method in ```DockingStation``` class
 - After running ```rspec```, we didn't get an error anymore, because method is now defined.
+
+# challenge9 #
+- Saved ```docking_station.release_bike``` to ```bike``` ( ```bike``` is a ```nil``` object because the ```release_bike``` method was empty)
+- Called ```working?``` method on ```bike```, got a ```NoMethodError``` because we had not defined a ```working?``` method, yet
+- Created ```bike_spec.rb``` test file.
+- Ran ```rspec``` and got ```NameError``` ```uninitialized constant Bike``` because we have not initialized a ```Bike``` class, yet
+- Initialised ```Bike``` class in file ```bike.rb``` (saved in ```./lib```). And also added ```require 'bike'``` at the top of ```bike_spec.rb```
+- Added a test to ```bike_spec.rb``` that expects instances of ```Bike``` to respond to ```working?``` method
+- Ran ```rspec``` and got an error message because, we had not defined ```working?``` method in ```Bike``` class
+- Defined ```working?```, ran ```rspec``` and test passed.
