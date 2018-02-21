@@ -48,3 +48,10 @@ docking_station <-- release_bike --> bike
 - noticed that using ```require 'filename'``` does not take us to the path; therefore we had to use absolute path ```require './lib/docking_station.rb'```
 - we don't see an error anymore because we now have initialised the class and we are able to create DockingStation objects.
 - calling ```docking_station.release_bike``` gives an ```undefined method``` because we have not defined a ```release_bike``` method, yet
+
+# challenge8 #
+- Added test to expect ```DockingStation``` to respond to ```release_bike```
+- Rewrote text using one-line syntax: ```it { is_expected.to respond_to(:release_bike)}```
+- Error running ```rspec```: failing because method ```release_bike``` was not initialised (were expecting error message saying something like "undefined method")
+- Defined ```release_bike``` method in ```DockingStation``` class
+- After running ```rspec```, we didn't get an error anymore, because method is now defined.
