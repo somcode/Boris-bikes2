@@ -24,4 +24,8 @@ describe DockingStation do
   it 'release_bike should raise an error' do
     expect { subject.release_bike }.to raise_error # 'there is no bike'
   end
+
+  it 'dock_bike should raise an error' do
+    expect {subject.dock_bike}.to raise_error
+  end
 end

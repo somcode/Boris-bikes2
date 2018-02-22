@@ -9,6 +9,7 @@ class DockingStation
   end
 
   def dock_bike(bike)
+    raise "there is no space" unless @bike.nil?
      @bike = bike
   end
 end
