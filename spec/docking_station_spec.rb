@@ -4,7 +4,10 @@ describe DockingStation do
   # it 'responds to release_bike' do
   #   expect(subject).to respond_to :release_bike
   # end
-  subject(:docking_station) { described_class.new }
+  let(:fake_bike) { double :fake_bike, working?: true }
+  let(:fake_bike_class) { double :fake_bike_class, new: fake_bike}
+
+  subject(:docking_station) { described_class.new(fake_bike_class) }
 
   it { should respond_to(:release_bike)}
 
@@ -31,14 +34,6 @@ describe DockingStation do
   end
 
   it 'dock_bike should raise an error when is full' do
-    fake_bike = double(
-      :working? => true
-    )
-
-    #19.times {subject.dock_bike(Bike.new)}
-    #p "BIKES: #{subject.bikes}"
-
-
-    expect { subject.dock_bike(bike) }.to raise_error 'there is no space'
+    expect { subject.dock_bike(fake_bike) }.to raise_error 'there is no space'
   end
 end
