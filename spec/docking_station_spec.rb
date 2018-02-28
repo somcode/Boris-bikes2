@@ -29,7 +29,7 @@ describe DockingStation do
 
 
   it 'release_bike should raise an error when is empty' do
-    20.times {docking_station.release_bike}
+    DockingStation::DEFAULT_CAPACITY.times {docking_station.release_bike}
     expect { docking_station.release_bike }.to raise_error 'there is no bike'
   end
 
